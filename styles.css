@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(77, 62, 43);
+    text-align:center;
+    font-family: Montserrat;
+}
+.back{
+    
+   text-align:center;
+   background-image: linear-gradient(to right, rgb(17, 17, 17), rgb(87, 85, 85), rgb(14, 13, 13));
+   margin-left: 20%;
+   margin-right: 20%;
+   padding-bottom: 10%;    
+    
+}
+
+.title{
+    color: aliceblue;
+    background-image: linear-gradient(green, rgb(42, 54, 42), green);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Montserrat;
+}
+.inst{
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+}
+.pow{
+    width: 300px;
+    height: 350px;
+    margin-top: 10px;
+    
+}
+h5{
+    color: antiquewhite;
+    text-align: justify;
+    font-family: Montserrat;
+    
+}

@@ -1,0 +1,317 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/start.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+  </link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+
+  <title>Start</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-lg-12">
+  <section class="back">
+
+    
+
+        <h2 class="title">AUTOMATED ACCIDENT EMERGENCY ALERT SYSTEM</h2>
+        <p>
+        <h4>Click the button below to get your location.</h4>
+        </p>
+
+        <button class=" btn btn-success btn-lg but" onclick="getLocation()"> <i class=" ma fa fa-map-marker"></i> Get Location
+        </button>
+
+        <h5>
+          <p id="demo"></p>
+        </h5>
+
+       <p>
+        <h3 class="mes"> SELECT SERVICE BELOW</h3>
+        </p>
+
+        
+        <div>
+          <p>
+          <p class="spinner" id="spinner"><i class="fa fa-spinner fa-5x"></i></p>
+        </div>
+        </p>
+        <div class="row">
+          <div class="col-lg-12">
+        <div class="dropdown">
+          <button onclick="myButton()" class="btn btn-danger btn-lg dropbtn eme"> 
+            <i class="fa fa-circle-exclamation"></i> EMERGENCY SERVICES <i class="fa fa-caret-down"></i></button><span class="caret"></span>
+          
+          <div id="myDro" class="dropdown-content droc">
+             <button class="btn btn-light btn-lg" onclick="emailToFrsc()">Federal Road Saftey Comission</button>
+            <hr>
+            <button class="btn btn-light btn-lg" onclick="emailToFire()">Fire Service</button>
+            <hr>
+            <button class="btn btn-light btn-lg" onclick="emailToPol()">Police Force</button>
+          </div>
+        </div>
+        
+         
+        <div class="dropdown">
+          <button onclick="myFunction()" class="btn btn-primary btn-lg dropbtn hosp"> 
+            <i class="fa fa-ambulance"></i> HOSPITAL SERVICES <i class="fa fa-caret-down"></i></button>
+          
+          <div id="myDrop" class="dropdown-content droo">  
+            <button class="btn btn-light btn-lg" onclick="emailToFedMed()">Federal Medical Center</button>
+            <hr>
+            <button class="btn btn-light btn-lg" onclick="emailToMadonna()">Madonna Hospital</button>
+            <hr>
+            <button class="btn btn-light btn-lg" onclick="emailToBenue()">Benue State University Teaching Hospital</button>
+            <hr>
+            <button class="btn btn-light btn-lg" onclick="emailToNorth()">General Hospital North Bank</button>
+          </div>
+        </div>
+          </div>
+        </div>
+  </section>
+</div>
+</div>
+
+<script>
+
+var mailBody = " ";
+var longitude  = null;
+var latitude = null;
+var mail = " ";
+var mailtoLink = " ";
+
+function sendEmail(latitude, longitude, mail){
+
+emailBody = "Latitude: " + latitude + "\nLongitude: " + longitude; var emailSubject = "Geolocation Coordinates"; var emailRecipient = mail ;
+ mailtoLink = "mailto:" + emailRecipient + "?subject=" + encodeURIComponent(emailSubject) + "&body=" + encodeURIComponent(emailBody); 
+// Open the user's default email client
+ window.location.href = mailtoLink; 
+
+}
+
+
+  
+   function getLocationForFire() {
+      if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(successForFire, error); }}
+  
+ function successForFire(position) {
+
+ latitude = position.coords.latitude; 
+ longitude = position.coords.longitude;
+
+ sendEmail( latitude, longitude, mail);
+
+ 
+ 
+}
+  
+ 
+
+function error(error) {
+ console.log("Error retrieving location: " + error.message); } 
+  
+ 
+ function getLocation() {
+      if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error); 
+ 
+}
+
+}
+
+
+ function success(position) {
+
+  latitude = position.coords.latitude; 
+  longitude = position.coords.longitude;
+  
+  //sendEmail(latitude, longitude, mail);
+}
+
+
+
+
+ function emailToFire() {
+
+getLocation1();
+ }
+ function emailToFrsc() { 
+getLocation2();
+}
+ function emailToPol(){
+  getLocation3();
+ }
+ function emailToFedMed(){
+  getLocation4();
+ }
+ function emailToMadonna(){
+  getLocation5();
+ } 
+ function emailToBenue(){
+  getLocation6();
+ }
+ function emailToNorth(){
+  getLocation7();
+ }
+ function getLocation1() {
+  function success(position) {
+
+  latitude = position.coords.latitude; 
+  longitude = position.coords.longitude;
+}
+  mail = "jonb7385@gmail.com";
+  sendEmail(latitude, longitude, mail);
+}
+function getLocation2() {
+  function success2(position) {
+
+  latitude = position.coords.latitude; 
+  longitude = position.coords.longitude;
+  }
+   mail = "francissk186@gmail.com ";
+  sendEmail(latitude, longitude, mail);
+}
+ function getLocation3() {
+    function success(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude; 
+  }
+   mail = " polforce01@gmail.com";
+    sendEmail(latitude, longitude, mail);
+  }
+  function getLocation4() {
+    function success(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude;
+  }
+   mail = " fedmedi001@gmail.com";
+    sendEmail(latitude, longitude, mail);
+  }
+  function getLocation5() {
+    function success(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude;
+  }
+   mail = " madonna7385@gmail.com";
+    sendEmail(latitude, longitude, mail);
+  }
+  function getLocation6() {
+    function success(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude;
+  }
+   mail = "teachingbenue01@gmail.com";
+    sendEmail(latitude, longitude, mail);
+  }
+  function getLocation7() {
+    function success(position) {
+    latitude = position.coords.latitude; 
+    longitude = position.coords.longitude;
+  }
+   mail = "banknorth2@gmail.com";
+    sendEmail(latitude, longitude, mail);
+  }
+
+
+
+</script>
+<!-- <script> 
+navigator.geolocation.getCurrentPosition(success, error); 
+function success(position) {
+   var latitude = position.coords.latitude; var longitude = position.coords.longitude;
+ // Call the function to send the email with the coordinates
+ sendEmail(latitude, longitude); } 
+function error(error) {
+ console.log("Error retrieving location: " + error.message); } 
+function sendEmail(latitude, longitude) {
+ var emailBody = "Latitude: " + latitude + "\nLongitude: " + longitude; var emailSubject = "Geolocation Coordinates"; var emailRecipient = "example@example.com";
+ // Create the mailto link
+ var mailtoLink = "mailto:" + emailRecipient + "?subject=" + encodeURIComponent(emailSubject) + "&body=" + encodeURIComponent(emailBody); 
+// Open the user's default email client
+ window.location.href = mailtoLink; }
+
+function emailToFrsc(){
+  success(postion);
+}
+</script> -->
+  <!-- <script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "An accident has occured at <br>Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+  </script> -->
+  <script>
+     function myButton() {
+          document.getElementById("myDro").classList.toggle("show");
+        }
+        
+        
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(evento) {
+          if (!evento.target.matches('.eme')) {
+            var dropdowns = document.getElementsByClassName("dro");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+         <script>
+          function myFunction() {
+               document.getElementById("myDrop").classList.toggle("show");
+             }
+             
+             
+             // Close the dropdown menu if the user clicks outside of it
+             window.onclick = function(eventi) {
+               if (!eventi.target.matches('.hosp')) {
+                 var dropdowns = document.getElementsByClassName("droo");
+                 var i;
+                 for (i = 0; i < dropdowns.length; i++) {
+                   var openDropdown = dropdowns[i];
+                   if (openDropdown.classList.contains('show')) {
+                     openDropdown.classList.remove('show');
+                   }
+                 }
+               }
+             }
+             </script>
+ 
+  <script src="js/document.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
